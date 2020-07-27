@@ -7,7 +7,7 @@
 
 ## Antoher headline
 
-<img src="markdown_media/about-bg.jpg" />
+<img src="img/about-bg.jpg" />
 
 ## TEST333
 
