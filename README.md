@@ -2,10 +2,11 @@
 
 State: experimental
 
-Minimal template for OER one pagers which also work with Github Actions, use some minification and privacy-friendly embeds, but aims to be simplistic.
+Minimal template for OER one pagers which also work with Github Actions, use some minification and privacy-friendly embeds, but maintain the main goal of simplicity.
 
-- local dev environment with gulp (auto-refresh, scss, markdown rendering)
+- local dev environment with gulp (auto-refresh, scss, js minification, npm packages)
 - convert markdown to html with gulp-markdown
+- "subpage" content via bootstrap modal (therefore no need of complex URL routing or something like that), e.g. Imprint and Privacy Page
 
 ## Local development
 
