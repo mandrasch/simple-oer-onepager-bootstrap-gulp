@@ -73,10 +73,10 @@ function modules() {
 
   // copy directories
 
-  var content = gulp.src(['./markdown_media/**/*']).pipe(gulp.dest('./build/markdown_media'));
-  var img = gulp.src(['./theme_media/**/*']).pipe(gulp.dest('./build/theme_media'));
+  var markdownImages = gulp.src(['./markdown/img/**/*']).pipe(gulp.dest('./build/img'));
+  var staticImages = gulp.src(['./src/static/**/*']).pipe(gulp.dest('./build/static'));
 
-  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, content, img);
+  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, markdownImages, staticImages);
 }
 
 // CSS task
