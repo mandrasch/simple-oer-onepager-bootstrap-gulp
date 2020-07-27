@@ -82,7 +82,7 @@ function modules() {
 // CSS task
 function css() {
   return gulp
-    .src("./scss/**/*.scss")
+    .src("./src/scss/**/*.scss")
     .pipe(plumber())
     .pipe(sass({
       outputStyle: "expanded",
@@ -109,10 +109,10 @@ function css() {
 function js() {
   return gulp
     .src([
-      './js/*.js',
-      '!./js/*.min.js',
-      '!./js/contact_me.js',
-      '!./js/jqBootstrapValidation.js'
+      './src/js/*.js',
+      '!./src/js/*.min.js',
+      '!./src/js/contact_me.js',
+      '!./src/js/jqBootstrapValidation.js'
     ])
     .pipe(uglify())
     /*.pipe(header(banner, {
@@ -129,7 +129,7 @@ function js() {
 // https://www.npmjs.com/package/gulp-markdown
 // https://stackoverflow.com/a/35851097
 function md2html(){
-  var convert = gulp.src('./**/*.md')
+  var convert = gulp.src('./src/**/*.md')
         .pipe(markdown())
         .pipe(gulp.dest('./build'))
         .pipe(browsersync.stream());
@@ -137,7 +137,7 @@ function md2html(){
 }
 
 function injectMarkdownHtmlInIndex(){
-  var replaceContent = gulp.src('./index.template.html')
+  var replaceContent = gulp.src('./src/index.template.html')
     .pipe(replace('<!-- MARKDOWN-CONTENT -->', function() {
         // 2DO: use marked directly?
         // https://github.com/sindresorhus/gulp-markdown/blob/master/index.js
@@ -165,10 +165,10 @@ const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Watch files
 function watchFiles() {
-  gulp.watch("./scss/**/*", css);
-  gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
-  gulp.watch("./**/*.md", convertMarkdown);
-  gulp.watch("./index.template.html", convertMarkdown);
+  gulp.watch("./src/scss/**/*", css);
+  gulp.watch(["./src/js/**/*", "!./js/**/*.min.js"], js);
+  gulp.watch("./src/**/*.md", convertMarkdown);
+  gulp.watch("./src/index.template.html", convertMarkdown);
 }
 
 // Export tasks
