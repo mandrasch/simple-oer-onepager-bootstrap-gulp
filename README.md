@@ -1,21 +1,28 @@
+# Simple OER onepager template
 
 State: experimental
 
 Minimal template for OER one pagers which also work with Github Actions, use some minification and privacy-friendly embeds, but aims to be simplistic.
 
-2DO:
-- add GithubAction for `gulp`, otherwise local `gulp` command + push is necessary and changes can not only be done via Github Editor e.g.
-
-Based on
-- startbootstrap/cleanblog
-- markedjs
-- 2ClickIframePrivacy
+- local dev environment with gulp (auto-refresh, scss, markdown rendering)
+- convert markdown to html with gulp-markdown
 
 ## Local development
 
 1. `npm install`
 2. `npm start run` for dev preview
 3. `gulp` for build (minification css/js)
+
+
+2DO:
+- add GithubAction for `gulp`, otherwise local `gulp` command + push is necessary and changes can not only be done via Github Editor e.g.
+
+Based on
+- startbootstrap/cleanblog (MIT license)
+
+Third party libraries:
+
+- 2ClickIframePrivacy
 
 ### About gulp build process
 
