@@ -1,11 +1,45 @@
 
-- Do not edit /css directly, use /scss directory
+State: experimental
+
+Minimal template for OER one pagers which also work with Github Actions, use some minification and privacy-friendly embeds, but aims to be simplistic.
+
+2DO:
+- add GithubAction for `gulp`, otherwise local `gulp` command + push is necessary and changes can not only be done via Github Editor e.g.
+
+Based on
+- startbootstrap/cleanblog
+- markedjs
+- 2ClickIframePrivacy
+
+## Local development
 
 1. `npm install`
-2. `npm start` for dev preview
+2. `npm start run` for dev preview
 3. `gulp` for build (minification css/js)
 
-State: experimental
+### About gulp build process
+
+- JS task only minifies clean-blog.js to clean-blog.min.js and adds header
+- Do not edit /css directly, use /scss directory (changes will be overriden by gulp)
+
+### Add custom javascript files (third party, non-npm)
+
+1. add to /js
+2. add as ignore line in gulpfile if it should not be minified (files with .min.js will be automatically ignored)
+3. include it in html
+
+Nice way: Use .js file in editor, include .min.js in html, run 'npm start run' while developing (this will automatically minify your js if you change something and reload the browser)
+
+## Privacy embeds (GDPR, 2Click)
+
+Use iframes with following attributes (see https://github.com/01-Scripts/2Click-Iframe-Privacy for more information)
+```
+src="" data-src="https://www.youtube-nocookie.com/embed/DdKhKxShJf0" data-2click-type="video"
+```
+
+## Deployment
+
+- 2DO: describe Github Action for gh-pages or ftpdeploy (build with gulp)
 
 # Based on:
 
