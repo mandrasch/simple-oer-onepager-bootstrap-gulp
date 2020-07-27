@@ -12,6 +12,11 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+const replace = require('gulp-replace');
+const markdown = require('gulp-markdown');
+
+const fs = require('fs');
+const path = require('path');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -29,7 +34,7 @@ const banner = ['/*!\n',
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: "./"
+      baseDir: "./build/"
     },
     port: 3000
   });
@@ -45,26 +50,33 @@ function browserSyncReload(done) {
 // Clean vendor
 function clean() {
   return del(["./vendor/"]);
+  return del(["./build/"]);
 }
 
 // Bring third party dependencies from node_modules into vendor directory
 function modules() {
   // Bootstrap
   var bootstrap = gulp.src('./node_modules/bootstrap/dist/**/*')
-    .pipe(gulp.dest('./vendor/bootstrap'));
+    .pipe(gulp.dest('./build/vendor/bootstrap'));
   // Font Awesome CSS
   var fontAwesomeCSS = gulp.src('./node_modules/@fortawesome/fontawesome-free/css/**/*')
-    .pipe(gulp.dest('./vendor/fontawesome-free/css'));
+    .pipe(gulp.dest('./build/vendor/fontawesome-free/css'));
   // Font Awesome Webfonts
   var fontAwesomeWebfonts = gulp.src('./node_modules/@fortawesome/fontawesome-free/webfonts/**/*')
-    .pipe(gulp.dest('./vendor/fontawesome-free/webfonts'));
+    .pipe(gulp.dest('./build/vendor/fontawesome-free/webfonts'));
   // jQuery
   var jquery = gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
-    .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery);
+    .pipe(gulp.dest('./build/vendor/jquery'));
+
+  // copy directories
+
+  var content = gulp.src(['./markdown_media/**/*']).pipe(gulp.dest('./build/markdown_media'));
+  var img = gulp.src(['./theme_media/**/*']).pipe(gulp.dest('./build/theme_media'));
+
+  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, content, img);
 }
 
 // CSS task
@@ -83,47 +95,81 @@ function css() {
     .pipe(header(banner, {
       pkg: pkg
     }))
-    .pipe(gulp.dest("./css"))
+    .pipe(gulp.dest("./build/css"))
     .pipe(rename({
       suffix: ".min"
     }))
     .pipe(cleanCSS())
-    .pipe(gulp.dest("./css"))
+    .pipe(gulp.dest("./build/css"))
     .pipe(browsersync.stream());
 }
 
 // JS task
+// 2DO: remove ignores?
 function js() {
   return gulp
     .src([
       './js/*.js',
       '!./js/*.min.js',
       '!./js/contact_me.js',
-      '!./js/jqBootstrapValidation.js',
-      '!./js/custom.js'
+      '!./js/jqBootstrapValidation.js'
     ])
     .pipe(uglify())
-    .pipe(header(banner, {
+    /*.pipe(header(banner, {
       pkg: pkg
-    }))
+    }))*/
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./build/js'))
     .pipe(browsersync.stream());
 }
+// Markdown Task
+
+// https://www.npmjs.com/package/gulp-markdown
+// https://stackoverflow.com/a/35851097
+function md2html(){
+  var convert = gulp.src('./**/*.md')
+        .pipe(markdown())
+        .pipe(gulp.dest('./build'))
+        .pipe(browsersync.stream());
+  return convert;
+}
+
+function injectMarkdownHtmlInIndex(){
+  var replaceContent = gulp.src('./index.template.html')
+    .pipe(replace('<!-- MARKDOWN-CONTENT -->', function() {
+        // 2DO: use marked directly?
+        // https://github.com/sindresorhus/gulp-markdown/blob/master/index.js
+        //var renderedHtmlFromMarkdown = markdown(fs.readFileSync('./content/index.md','utf8'));
+        //return renderedHtmlFromMarkdown;
+        var htmlContent = fs.readFileSync('./build/index.content.html', 'utf8');
+        return htmlContent;
+      }))
+      .pipe(rename('index.html'))
+      .pipe(gulp.dest('./build'))
+      .pipe(browsersync.stream());
+
+      return replaceContent;
+
+      // 2DO: delete onepager.html afterwards
+}
+
+
+
+// Define complex tasks
+const vendor = gulp.series(clean, modules);
+const convertMarkdown = gulp.series(md2html,injectMarkdownHtmlInIndex); // need to run in order
+const build = gulp.series(vendor, convertMarkdown, gulp.parallel(css, js));
+const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Watch files
 function watchFiles() {
   gulp.watch("./scss/**/*", css);
   gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
-  gulp.watch("./**/*.html", browserSyncReload);
+  gulp.watch("./**/*.md", convertMarkdown);
+  gulp.watch("./index.template.html", convertMarkdown);
 }
-
-// Define complex tasks
-const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, gulp.parallel(css, js));
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Export tasks
 exports.css = css;
