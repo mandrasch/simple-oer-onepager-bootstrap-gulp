@@ -1,4 +1,15 @@
-# [Start Bootstrap - Clean Blog](https://startbootstrap.com/themes/clean-blog/)
+
+- Do not edit /css directly, use /scss directory
+
+1. `npm install`
+2. `npm start` for dev preview
+3. `gulp` for build (minification css/js)
+
+State: experimental
+
+# Based on:
+
+## [Start Bootstrap - Clean Blog](https://startbootstrap.com/themes/clean-blog/)
 
 [Clean Blog](https://startbootstrap.com/themes/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working PHP contact form.
 
