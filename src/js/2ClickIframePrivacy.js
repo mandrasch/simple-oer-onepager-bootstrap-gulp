@@ -11,7 +11,7 @@
         enableCookies: true,
         useSessionCookie: true,
         cookieNamespace: '_2ClickIPEnable-',
-        showContentLabel: 'Inhalt anzeigen',
+        showContentLabel: 'Videos aktivieren',
         rememberChoiceLabel: 'Auswahl merken',
         privacyPolicyLabel: 'Datenschutzerklärung',
         privacyPolicyUrl: false
@@ -20,7 +20,7 @@
     this.types = new Array(
         {
             type: 'video',
-            description: 'Zum Aktivieren des Videos bitte auf den Link klicken. Durch das Aktivieren von eingebetteten Videos werden Daten an den jeweiligen Anbieter übermittelt. Weitere Informationen können unserer Datenschutzerklärung entnommen werden.<br />'
+            description: 'Zum Aktivieren der Videos bitte auf den Link klicken. Durch das Aktivieren von eingebetteten Videos werden Daten an die Anbieter YouTube (youtube-nocookie.com, <a href="https://policies.google.com/privacy" target="_blank">Datenschutzerklärung</a>) sowie an den gemeinnützigen Anbieter Wikimedia Commons (<a href="https://meta.wikimedia.org/wiki/Privacy_policy/de" target="_blank">Datenschutzerklärung</a>) übermittelt.<br /><br />'
         },
         {
             type: 'map',
@@ -53,7 +53,7 @@
         wrapper.className = 'privacy-msg privacy-'+type+'-msg';
         wrapper.style.width = el.clientWidth+'px';
         wrapper.style.height = el.clientHeight+'px';
-        wrapper.innerHTML = text +'<a href="#foo" onclick="_2ClickIframePrivacy.EnableContent(\''+ type +'\'); return false;">'+config.showContentLabel+'</a>';
+        wrapper.innerHTML = text +'<a href="#foo" class="btn-primary btn-sm" onclick="_2ClickIframePrivacy.EnableContent(\''+ type +'\'); return false;">'+config.showContentLabel+'</a>';
         if(config.enableCookies){
             wrapper.innerHTML = wrapper.innerHTML + '<br /><input type="checkbox" name="remind-\''+ type +'\'" /> <label>'+config.rememberChoiceLabel+'</label>';
         }

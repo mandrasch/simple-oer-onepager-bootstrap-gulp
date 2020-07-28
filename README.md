@@ -10,10 +10,15 @@ Minimal template for OER one pagers which also work with Github Actions, use som
 
 ## Local development
 
-1. `npm install`
-2. `npm start run` for dev preview
-3. `gulp` for build (minification css/js)
-
+1. Install [nodejs](https://nodejs.org/en/download/)
+1. Open a terminal
+1. Check if node is installed with `node -v` and check `npm -v`
+1. Clone this repository to your local harddrive
+1. Change the directory to the local repository
+1. Run `npm install` (this will install dependencies)
+1. Run `npm start run` for dev preview (this generates `build/` dir and watches for changes in scss, markdown files, etc.)
+1. To create production build use `gulp`
+1. For deployment checkout GitHub Actions gh-pages [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages) / [ftpdeploy](https://github.com/SamKirkland/FTP-Deploy-Action), see `.github` directory
 
 2DO:
 - add GithubAction for `gulp`, otherwise local `gulp` command + push is necessary and changes can not only be done via Github Editor e.g.

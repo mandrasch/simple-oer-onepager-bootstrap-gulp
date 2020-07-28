@@ -80,8 +80,9 @@ function modules() {
 
   var markdownImages = gulp.src(['./markdown/img/**/*']).pipe(gulp.dest('./build/img'));
   var staticImages = gulp.src(['./src/static/**/*']).pipe(gulp.dest('./build/static'));
+  var fonts = gulp.src(['./src/fonts/**/*']).pipe(gulp.dest('./build/fonts'));
 
-  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, scrollProgress, markdownImages, staticImages);
+  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, scrollProgress, markdownImages, staticImages, fonts);
 }
 
 // CSS task

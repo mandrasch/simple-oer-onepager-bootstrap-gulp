@@ -6,10 +6,12 @@
   });
 
   // bootstrap modals
-  // 2DO: use data-file
-  $("#dynamicModal").click(function(){
+  // open subpages in modals
+  $("#footerMenu a").click(function(e){
+    e.preventDefault();
+    console.log('clicked footer menu link', this, $(this));
     $.get({
-      url: 'imprint.html',
+      url: $(this).attr('href'),
       success: function(response){
         console.log('sucess',response);
         // Add response in Modal body
@@ -27,6 +29,7 @@
   const progressObserver = new ScrollProgress((x, y) => {
     progressElement.style.width = y * 100 + '%';
   });
+
 
 
 })(jQuery); // End of use strict
