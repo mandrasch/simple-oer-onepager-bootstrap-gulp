@@ -8,12 +8,13 @@
   z-index:5000;
 }
 
-header, header.masthead .overlay{
+header, header.masthead .overlay, .post-heading{
   background-color:white !important;
-  color: #6e6e6e;
+  color: #6e6e6e !important;
+  text-align:center;
 }
 
-.navbar, .navbar-expand-lg, .navbar-light{
+.navbar, .navbar-expand-lg, .navbar-light, footer{
   background-color: #454545 !important;
 }
 .navbar-brand {

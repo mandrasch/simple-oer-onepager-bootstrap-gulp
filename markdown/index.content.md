@@ -1,22 +1,3 @@
-
-# title
-## title 2
-## THIS SHOULD BE ADDED VIA MARKDOWN()
-
-<iframe width="560" height="415" src="" data-2click-type="video" data-src="https://www.youtube-nocookie.com/embed/DdKhKxShJf0" data-2click-type="video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Antoher headline
-
-<img src="img/about-bg.jpg" />
-
-## TEST333
-
-
-#### fourth headline
-
-
-
-
 ### Hey du, kurz mal Zeit für Klimakrise?
 
 Ja, ich weiß. Eigentlich ist jetzt Feierabend / Mittagspause / Wochenende (oder du sitzt gerade auf dem Klo mit Smartphone). Und eigentlich willst du einfach mal den Kopf ausmachen. Schule / Ausbildung / Studium / Bewerbungen oder dein Job sind schon nervig genug und Spaß am Leben muss ja auch irgendwie drin sein auf diesem Planeten. Und ja, der ganze Klimakram ist anscheinend kompliziert. Alle labern rum, tausend Zahlen und Meinungen kursieren, - anstrengend, richtig anstrengend! Wie so eine nie endende Politik-Talkshow, bei der sich niemand ausreden lässt. 🙅‍♂️<br/>
@@ -41,8 +22,8 @@ Selbst erstellte Remix-Grafik, verwendete Werke: <a href="https://commons.wikime
 Das erste Messdiagramm (Mitte) zeigt den aktuellen Anteil von Kohlenstoffdioxid, CO2, in der Atmosphäre unseres Planeten Erde an. Kohlenstoffdioxid, CO2, ist an sich ein natürliches Gas, welches unsichtbar und geruchlos ist und schon immer auf diesem Planeten zu finden war. Wir atmen es aus, Pflanzen können es aufnehmen und es entsteht auch bei der Verbrennung von Kohle oder Vulkanausbrüchen. Der Anteil von CO2 wird in parts per million (ppm) gemessen, die kleine Grafik oben links (monatliche Variation) musst du erstmal überhaupt nicht beachten:
 
 <div about="1024px-Mauna_Loa_CO2_monthly_mean_concentration_DE.svg.png" class="copyright">
-<a href="./1024px-Mauna_Loa_CO2_monthly_mean_concentration_DE.svg.png" target="_blank">
- <img src="./1024px-Mauna_Loa_CO2_monthly_mean_concentration_DE.svg.png" alt="Grafik über monatliche CO2-Konzentation" />
+<a href="./img/1024px-Mauna_Loa_CO2_monthly_mean_concentration_DE.svg.png" target="_blank">
+ <img src="./img/1024px-Mauna_Loa_CO2_monthly_mean_concentration_DE.svg.png" alt="Grafik über monatliche CO2-Konzentation" />
  </a>
  Grafik:
  <a rel="cc:attributionURL" property="dc:title" href="https://commons.wikimedia.org/wiki/File:Mauna_Loa_CO2_monthly_mean_concentration_DE.svg">Mauna Loa CO2 monthly mean concentration DE</a>
@@ -71,8 +52,8 @@ Okay, das chemische Element Kohlenstoff (C) als auch das Gas Kohlenstoffdioxid (
 Das zweite Diagramm zeigt die durchschnittliche Abkühlung oder Erwärmung, wenn man alle Temperaturmessungen auf der Welt zusammenrechnet und noch so ein paar langweilige statistische Berechnungen macht. Im Grunde also ob es jeweils wärmer oder kälter wurde im Gesamtdurchschnitt pro Jahr und mit Blick auf die ganze Erdoberfläche gerechnet, daher auch Land-Ozean-Temperatur-Index. Gibt ja nicht nur Landfläche auf der Welt, sondern Meere machen ja auch viel aus:
 
 <div about="langde-1280px-Global_Temperature_Anomaly.svg.png" class="copyright">
-<a href="./langde-1280px-Global_Temperature_Anomaly.svg.png" target="_blank">
- <img src="./langde-1280px-Global_Temperature_Anomaly.svg.png" alt="Jugendliche an einem Steg" />
+<a href="./img/langde-1280px-Global_Temperature_Anomaly.svg.png" target="_blank">
+ <img src="./img/langde-1280px-Global_Temperature_Anomaly.svg.png" alt="Jugendliche an einem Steg" />
  </a>
  Grafik: <span property="dc:creator">NASA</span> <a rel="cc:attributionURL" property="dc:title"  href="https://en.wikipedia.org/wiki/Goddard_Institute_for_Space_Studies">Goddard Institute for Space Studies</a>, <a href="https://commons.wikimedia.org/wiki/File:Global_Temperature_Anomaly.svg">Global Temperature	Anomaly</a>, als gemeinfrei gekennzeichnet, Details auf <a rel="license" href="https://commons.wikimedia.org/wiki/Template:PD-US">Wikimedia Commons</a>
 </div>
@@ -80,8 +61,8 @@ Das zweite Diagramm zeigt die durchschnittliche Abkühlung oder Erwärmung, wenn
 Was sehen wir? Seit 1940 hat sich die Durchschnittstemperatur global gesehen also um ca. 1 Grad erhöht. Hört sich erstmal nicht viel an, hat aber schon ordentliche Konsequenzen (später gibt es dazu noch ein Video). Diese Temperaturabweichungen kann man natürlich ebenso für einzelne Länder, Regionen und Städte berechnen, hier z.B. die Abweichungen in Hannover (<i>„War die Temperatur in einem Jahr wärmer als die durchschnittliche Temperatur in diesem Zeitraum, färben wir den Streifen in Rottönen, war sie niedriger, in Blautönen.“ - Warming Stripes Tool von ZEIT Online, inspriert von Ed Hawkins</i>):
 
 <div about="warming_stripes_hannover.png" class="copyright">
-<a href="./warming_stripes_hannover.png" target="_blank">
- <img src="./warming_stripes_hannover.png" alt="Jugendliche an einem Steg" />
+<a href="./img/warming_stripes_hannover.png" target="_blank">
+ <img src="./img/warming_stripes_hannover.png" alt="Jugendliche an einem Steg" />
  </a>
 Screenshot: <a rel="cc:attributionURL" property="dc:title" href="https://www.zeit.de/wissen/umwelt/2019-12/klimawandel-globale-erwaermung-warming-stripes-wohnort">Warming Stripes Tool von ZEIT Online</a>, Screenshot nicht unter freier Lizenz
 </div>
@@ -106,7 +87,7 @@ Gibt es nun also einen direkten Zusammenhang zwischen CO2-Konzentration und durc
 
 <div about="zusammenhang.png" class="copyright">
 
-![Die beiden Grafiken nebeneinander gestellt, mit Fragezeichen dazwischen](./zusammenhang.png)
+![Die beiden Grafiken nebeneinander gestellt, mit Fragezeichen dazwischen](./img/zusammenhang.png)
 
 Eigene Zusammenstellung, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-ShareAlike 4.0</a>, verwendete Bilder: Grafik: <a href="https://commons.wikimedia.org/wiki/User:Delorme">Delorme</a>, <a href="https://commons.wikimedia.org/wiki/File:Mauna_Loa_CO2_monthly_mean_concentration_DE.svg">Mauna Loa CO2 monthly mean concentration DE</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-SA	4.0</a> und NASA <a href="https://en.wikipedia.org/wiki/Goddard_Institute_for_Space_Studies">Goddard Institute for Space Studies</a>, <a href="https://commons.wikimedia.org/wiki/File:Global_Temperature_Anomaly.svg">Global Temperature Anomaly</a>, als gemeinfrei gekennzeichnet, Details auf <a href="https://commons.wikimedia.org/wiki/Template:PD-US">Wikimedia Commons</a>
 </div>
@@ -151,7 +132,7 @@ Die Menschheit muss an sich also "nur" schauen, dass das globale Thermometer nic
 
 <div class="ccLogo">
 
-![CC Logo](./cc_by_sharealike.png)
+![CC Logo](./img/cc_by_sharealike.png)
 
 </div>
 
