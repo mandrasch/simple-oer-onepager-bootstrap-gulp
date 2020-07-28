@@ -1,10 +1,12 @@
 (function($) {
   "use strict"; // Start of use strict
 
-  _2ClickIframePrivacy.init('');
+  _2ClickIframePrivacy.init({
+    'enableCookies':false
+  });
 
   // bootstrap modals
-
+  // 2DO: use data-file
   $("#dynamicModal").click(function(){
     $.get({
       url: 'imprint.html',
@@ -17,7 +19,14 @@
       }
     });
 
-  })
+  });
+
+  // scrollProgress
+  const progressElement = document.querySelector('.progress-bar');
+
+  const progressObserver = new ScrollProgress((x, y) => {
+    progressElement.style.width = y * 100 + '%';
+  });
 
 
 })(jQuery); // End of use strict

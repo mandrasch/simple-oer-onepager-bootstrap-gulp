@@ -1,0 +1,41 @@
+/* https://github.com/jeremenichelli/scrollProgress#scrollprogress- */
+.progress-bar {
+  background-color: red;
+  height: 5px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index:5000;
+}
+
+header, header.masthead .overlay{
+  background-color:white !important;
+  color: #6e6e6e;
+}
+
+.navbar, .navbar-expand-lg, .navbar-light{
+  background-color: #454545 !important;
+}
+.navbar-brand {
+  color: #FBE28B !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.privacy-msg {
+  border:1px solid red;
+}
+
+#content{
+  &:before{
+    display:none;
+  }
+
+  p.copyright, div.copyright, div.copyright > p {
+			color: grey;
+			font-size: 11px;
+			margin-top: 0;
+			margin-bottom: 25px;
+		}
+}

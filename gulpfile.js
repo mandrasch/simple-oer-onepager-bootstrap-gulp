@@ -11,7 +11,10 @@ const merge = require("merge-stream");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
-const uglify = require("gulp-uglify");
+// does not support es6
+//const uglify = require("gulp-uglify");
+// replaced with:
+const terser = require('gulp-terser');
 const replace = require('gulp-replace');
 const markdown = require('gulp-markdown');
 
@@ -71,12 +74,14 @@ function modules() {
     ])
     .pipe(gulp.dest('./build/vendor/jquery'));
 
+  var scrollProgress = gulp.src('./node_modules/scrollprogress/dist/**/*')
+    .pipe(gulp.dest('./build/vendor/scrollprogress'));
   // copy directories
 
   var markdownImages = gulp.src(['./markdown/img/**/*']).pipe(gulp.dest('./build/img'));
   var staticImages = gulp.src(['./src/static/**/*']).pipe(gulp.dest('./build/static'));
 
-  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, markdownImages, staticImages);
+  return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, scrollProgress, markdownImages, staticImages);
 }
 
 // CSS task
@@ -114,7 +119,7 @@ function js() {
       '!./src/js/contact_me.js',
       '!./src/js/jqBootstrapValidation.js'
     ])
-    .pipe(uglify())
+    .pipe(terser())
     /*.pipe(header(banner, {
       pkg: pkg
     }))*/
@@ -129,7 +134,7 @@ function js() {
 // https://www.npmjs.com/package/gulp-markdown
 // https://stackoverflow.com/a/35851097
 function md2html(){
-  var convert = gulp.src('./src/**/*.md')
+  var convert = gulp.src('./markdown/**/*.md')
         .pipe(markdown())
         .pipe(gulp.dest('./build'))
         .pipe(browsersync.stream());
@@ -167,8 +172,9 @@ const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 function watchFiles() {
   gulp.watch("./src/scss/**/*", css);
   gulp.watch(["./src/js/**/*", "!./js/**/*.min.js"], js);
-  gulp.watch("./src/**/*.md", convertMarkdown);
+  gulp.watch("./markdown/**/*.md", convertMarkdown);
   gulp.watch("./src/index.template.html", convertMarkdown);
+  gulp.watch(["./src/static/**/*","./markdown/img/**/*"], modules);
 }
 
 // Export tasks
